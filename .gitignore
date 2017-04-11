@@ -3,3 +3,7 @@
 
 # Python Compiled folder
 __pycache__/
+
+# Data download folder
+cah/data/bin/*
+!cah/data/bin/README.md
