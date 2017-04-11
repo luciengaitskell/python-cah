@@ -29,11 +29,13 @@ def load_cards(loc):
         return []
 
 
-class CardGroup:
-    cards = {}
-    used_cards = {}
 
+
+class CardGroup:
     def __init__(self, card_arr):
+        self.cards = {}
+        self.used_cards = {}
+
         for idx, crd in enumerate(card_arr):
             self.cards[idx] = crd
 
