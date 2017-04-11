@@ -1,4 +1,6 @@
 from .util import card
+import warnings
+warnings.simplefilter("once")
 import random
 import os
 
@@ -19,6 +21,12 @@ def get_data(file_name):
 
 questions = get_data(QUESTIONS_LOCATION)
 answers = get_data(ANSWERS_LOCATION)
+def load_cards(loc):
+    try:
+        return get_data(loc)
+    except FileNotFoundError:
+        warnings.warn("Card data not available.", ResourceWarning)
+        return []
 
 
 class CardGroup:
