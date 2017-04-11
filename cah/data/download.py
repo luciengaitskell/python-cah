@@ -11,14 +11,20 @@ def fetch_card_list(url):
     return data
 
 
-def write_file(file_name, urls):
+def write_file(overwrite, file_name, urls):
+    if (not overwrite) and os.path.isfile(os.path.join(os.path.dirname(__file__), file_name)):
+        return None
     with open(os.path.join(os.path.dirname(__file__), file_name), "w") as f:
         for u in urls:
             f.write(fetch_card_list(u))
 
 
-write_file("bin/answer.txt", ["http://www.cardsagainsthumanity.com/wcards.txt"])
+def download(overwrite=False):
+    write_file(overwrite, "bin/answer.txt", ["http://www.cardsagainsthumanity.com/wcards.txt"])
 
-write_file("bin/question.txt", ["http://www.cardsagainsthumanity.com/bcards.txt",
-                                "http://www.cardsagainsthumanity.com/bcards1.txt",
-                                "http://www.cardsagainsthumanity.com/bcards2.txt"])
+    write_file(overwrite, "bin/question.txt", ["http://www.cardsagainsthumanity.com/bcards.txt",
+                                               "http://www.cardsagainsthumanity.com/bcards1.txt",
+                                               "http://www.cardsagainsthumanity.com/bcards2.txt"])
+
+if __name__ == "__main__":
+    download(True)

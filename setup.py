@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from cah import VERSION
 
 # Donload question/answer data:
-from cah.data import download
+from cah.data import download; download.download(True)
 
 setup(name='python-cah',
       version=VERSION,
