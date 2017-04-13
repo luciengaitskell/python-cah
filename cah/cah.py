@@ -15,6 +15,7 @@ class Game:
         self.players = []
 
         self.player_cards = {}
+        self.card_tzar = None
 
     def add_player_id(self, player_id):
         new_player = player.Player(player_id)
@@ -60,3 +61,6 @@ class Game:
         answer = self.player_cards[plyr]
         opponent_answers = [value for key, value in self.player_cards.items() if key not in [plyr]]
         plyr.add_win(self.curr_question[0], answer, opponent_answers)
+
+    def set_card_tzar(self, plyr):
+        self.card_tzar = plyr
