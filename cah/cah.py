@@ -5,18 +5,16 @@ MAX_CARDS_PER_PLAYER = 5
 
 
 class Game:
-    curr_question = None
-
-    questions = cards.CardGroup(cards.questions)
-    answers = cards.CardGroup(cards.answers)
-
-    next_player_id = 0
-    players = []
-
-    player_cards = {}
-
     def __init__(self):
-        pass
+        self.curr_question = None
+
+        self.questions = cards.CardGroup(cards.questions)
+        self.answers = cards.CardGroup(cards.answers)
+
+        self.next_player_id = 0
+        self.players = []
+
+        self.player_cards = {}
 
     def add_player_id(self, player_id):
         new_player = player.Player(player_id)
