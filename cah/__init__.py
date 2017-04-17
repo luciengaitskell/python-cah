@@ -1,4 +1,4 @@
 from .data.download import download; download()
 from .cah import Game
 
-VERSION = '1.2'
+VERSION = '1.3'
