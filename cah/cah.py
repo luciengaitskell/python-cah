@@ -41,8 +41,8 @@ class Game:
         elif deal_num < 1:
             raise KeyError("Not enough cards to continue play.")
 
-        for t in range(0, deal_num):
-            for p in self.players:
+        for p in self.players:
+            while len(p.cards) < deal_num:
                 new_card = self.answers.get_new_card_random()
                 p.cards[new_card[0]] = new_card[1]
 
