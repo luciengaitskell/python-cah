@@ -19,8 +19,27 @@ def get_data(file_name):
     return data
 
 
-questions = get_data(QUESTIONS_LOCATION)
+def filter_multi_blanks(arr):
+    for i in reversed(range(len(arr))):
+        s = arr[i]
+        inside = False
+        count = 0
+        for c in s:
+            if c == '_':
+                if not inside:
+                    count += 1
+                    inside = True
+            else:
+                inside = False
+        if count > 1:
+            del(arr[i])
+
+    return arr
+
+questions = filter_multi_blanks(get_data(QUESTIONS_LOCATION))
 answers = get_data(ANSWERS_LOCATION)
+
+
 def load_cards(loc):
     try:
         return get_data(loc)
