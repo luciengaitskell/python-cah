@@ -25,7 +25,7 @@ class Game:
     def add_player(self):
         player_id = self.next_player_id
         self.next_player_id += 1
-        return player_id, self.add_player_id(player_id)
+        return self.add_player_id(player_id)
 
     def get_new_question(self):
         self.curr_question = self.questions.get_new_card_random()

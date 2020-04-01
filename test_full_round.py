@@ -2,8 +2,8 @@ import cah
 
 g = cah.Game()
 
-p1 = g.add_player()[1]
-p2 = g.add_player()[1]
+p1 = g.add_player()
+p2 = g.add_player()
 
 g.deal_cards()
 
