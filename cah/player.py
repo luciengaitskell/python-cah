@@ -1,9 +1,4 @@
 class Player:
-    id = None
-
-    cards = None
-    wins = None
-
     def __init__(self, player_id):
         self.cards = {}
         self.wins = {}
@@ -16,6 +11,5 @@ class Player:
         if card_id not in self.cards:
             raise KeyError("Card ID not in possession of this Player.")
 
-        crd = self.cards[card_id]
-        del(self.cards[card_id])
+        crd = self.cards.pop(card_id)
         return crd

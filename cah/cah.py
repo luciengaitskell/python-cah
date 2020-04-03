@@ -54,8 +54,7 @@ class Game:
         self.player_cards[plyr] = (card_id, card_data)
 
     def get_player_no_card(self):
-        players_with_cards = list(self.player_cards.keys())
-        return [x for x in self.players if x not in players_with_cards]
+        return [x for x in self.players if x not in self.player_cards.keys()]
 
     def set_round_winner(self, plyr):
         answer = self.player_cards[plyr]
