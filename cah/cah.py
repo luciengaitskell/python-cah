@@ -25,7 +25,7 @@ class Game:
     def add_player(self):
         player_id = self.next_player_id
         self.next_player_id += 1
-        return player_id, self.add_player_id(player_id)
+        return self.add_player_id(player_id)
 
     def get_new_question(self):
         self.curr_question = self.questions.get_new_card_random()
@@ -54,8 +54,7 @@ class Game:
         self.player_cards[plyr] = (card_id, card_data)
 
     def get_player_no_card(self):
-        players_with_cards = list(self.player_cards.keys())
-        return [x for x in self.players if x not in players_with_cards]
+        return [x for x in self.players if x not in self.player_cards.keys()]
 
     def set_round_winner(self, plyr):
         answer = self.player_cards[plyr]
